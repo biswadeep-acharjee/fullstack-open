@@ -8,13 +8,13 @@ sequenceDiagram
     participant server
 
     Note over browser,server: User writes a note and clicks Save
-    browser->>server: POST [https://studies.cs.helsinki.fi/exampleapp/new_note](https://studies.cs.helsinki.fi/exampleapp/new_note)
+    browser->>server: POST url?id=45
     activate server
     Note over server: Server creates a new note object and pushes it to notes array
     server-->>browser: HTTP 302 Redirect (Location: /notes)
     deactivate server
 
-    browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp0](https://studies.cs.helsinki.fi/exampleapp0)
+    browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/notes](https://studies.cs.helsinki.fi/exampleapp/notes)
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -38,9 +38,6 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes to the DOM
 
-## Exercise 0.5: Single page app diagram
-
-```mermaid
 sequenceDiagram
     participant browser
     participant server
@@ -50,7 +47,7 @@ sequenceDiagram
     server-->>browser: HTML document
     deactivate server
 
-    browser->>server: GET [https://studies.cs.helsinki.fi/exampleapp/main.css](https://studies.cs.helsinki.fi/exampleapp/main.css)
+    browser->>server: GET url?id=34
     activate server
     server-->>browser: the css file
     deactivate server
